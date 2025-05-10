@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gêmeo Digital CREA-SE</title>
+  <script src="main.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+    }
+    #speckle-container {
+      width: 100%;
+      height: 75vh;
+      border: none;
+      transition: filter 0.4s ease;
+    }
+    .blinking {
+      animation: alertaPisca 1s infinite;
+    }
+    @keyframes alertaPisca {
+      0% { filter: drop-shadow(0 0 0 orange); }
+      50% { filter: drop-shadow(0 0 20px orange); }
+      100% { filter: drop-shadow(0 0 0 orange); }
+    }
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    }
+    .sensor {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .sensor h3 {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="speckle-container"
+    src="https://app.speckle.systems/projects/0d27c6ca0a/models/a10185a708?embed=true"
+  ></iframe>
+
+  <div class="dashboard">
+    <div class="sensor">
+      <h3>Temperatura</h3>
+      <p id="temp-value">-- °C</p>
+    </div>
+    <div class="sensor">
+      <h3>Umidade</h3>
+      <p id="hum-value">-- %</p>
+    </div>
+  </div>
+</body>
+</html>
